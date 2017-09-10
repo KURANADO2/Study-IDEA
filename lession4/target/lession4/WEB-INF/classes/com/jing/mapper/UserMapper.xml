@@ -29,9 +29,10 @@
         INSERT INTO user VALUES (NULL, #{username}, #{password}, #{phone}, #{address})
     </insert>
 
-    <delete id="removeUser" parameterType="com.jing.pojo.User">
+    <delete id="removeUser" parameterType="Integer">
         DELETE FROM user
-        <include refid="condition"/>
+        WHERE
+        id = #{value}
     </delete>
 
     <update id="modifyUser" parameterType="com.jing.pojo.User">
@@ -47,6 +48,13 @@
         SELECT
         <include refid="base_column"/>
         FROM user
-        <include refid="condition"/>
+        WHERE id = #{id}
+    </select>
+
+    <select id="findAllUser" resultType="com.jing.pojo.User">
+        SELECT
+        id,
+        <include refid="base_column"/>
+        FROM user
     </select>
 </mapper>

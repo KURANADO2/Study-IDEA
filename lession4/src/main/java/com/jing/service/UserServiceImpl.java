@@ -10,10 +10,11 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * Created by JING on 2017/9/9.
+ * Created by JING on 2017/9/10.
  */
 @Service
 public class UserServiceImpl implements UserService {
+
 
     @Resource(name = "userMapper")
     private UserMapper userMapper;
@@ -22,15 +23,19 @@ public class UserServiceImpl implements UserService {
         userMapper.addUser(user);
     }
 
-    public void removeUser(User user) {
-        userMapper.removeUser(user);
+    public void removeUser(Integer id) {
+        userMapper.removeUser(id);
     }
 
     public void modifyUser(User user) {
         userMapper.modifyUser(user);
     }
 
-    public List<User> findUser(User user) {
-        return userMapper.findUser(user);
+    public User findUser(Integer id) {
+        return userMapper.findUser(id);
+    }
+
+    public List<User> findAllUser() {
+        return userMapper.findAllUser();
     }
 }

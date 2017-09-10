@@ -16,22 +16,28 @@ public interface UserMapper {
     void addUser(User user);
 
     /**
-     * 删除用户
-     * @param user
+     * 根据id删除用户
+     * @param id
      */
-    void removeUser(User user);
+    void removeUser(Integer id);
 
     /**
-     * 修改用户
+     * 根据id修改用户
      * @param user
      */
     void modifyUser(User user);
 
     /**
-     * 查找用户
-     * @param user
+     * 根据id查询单个用户
+     * @param id
      * @return
      */
-    List<User> findUser(User user);
+    User findUser(Integer id);
+
+    /**
+     * 查询所有用户
+     * @return
+     */
+    List<User> findAllUser();
 }
 
